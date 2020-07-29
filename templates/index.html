@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="{% static "img/logo.png" %}" alt=""></a>
+          <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static "img/logo.png" %}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -62,15 +62,15 @@
     <section>
       <div class="container">
         <div class="d-flex">
-          {%for popular_post in most_popular_posts %}
+          {%for post in most_popular_posts %}
             <div class="flex-fill" style="margin-right: 30px;">
               <div class="card blog__slide text-center">
                 <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{{popular_post.image_url}}" alt="">
+                  <img class="card-img rounded-0" src="{{post.image_url}}" alt="">
                 </div>
                 <div class="blog__slide__content">
-                  <h3><a href="#">{{popular_post.title}}</a></h3>
-                  <p>{{popular_post.published_at}}</p>
+                  <h3><a href="{% url 'post_detail' slug=post.slug %}">{{post.title}}</a></h3>
+                  <p>{{post.published_at}}</p>
                 </div>
               </div>
             </div>
@@ -86,24 +86,24 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            {%for fresh_post in fresh_posts %}
+            {%for post in fresh_posts %}
               <div class="single-recent-blog-post">
                 <div class="thumb">
-                  {%if fresh_post.image_url %}
-                    <img class="img-fluid" src="{{fresh_post.image_url}}" alt="">
+                  {%if post.image_url %}
+                    <img class="img-fluid" src="{{post.image_url}}" alt="">
                   {% else %}
                     <img class="img-fluid" src="{% static "img/banner/blog.png" %}" alt="">
                   {% endif %}  
                   <ul class="thumb-info" style = 'max-width: 550px'>
-                    <li><a href="#"><i class="ti-user"></i>{{fresh_post.author}}</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>{{fresh_post.published_at}}</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>{{fresh_post.comments_amount}} Comments</a></li>
+                    <li><a href="#"><i class="ti-user"></i>{{post.author}}</a></li>
+                    <li><a href="#"><i class="ti-notepad"></i>{{post.published_at}}</a></li>
+                    <li><a href="#"><i class="ti-themify-favicon"></i>{{post.comments_amount}} Comments</a></li>
                   </ul>
                 </div>
                 <div class="details mt-20">
-                  <h3>{{fresh_post.title}}</h3>
-                  <p>{{fresh_post.text|truncatechars_html:200 }}</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <h3>{{post.title}}</h3>
+                  <p>{{post.text|truncatechars_html:200 }}</p>
+                  <a class="button" href="{% url 'post_detail' slug=post.slug %}">Read More <i class="ti-arrow-right"></i></a>
                 </div>
               </div>
             {% endfor %}
