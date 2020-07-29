@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="icon" href="{% static "img/favicon.png" %}" type="image/png">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
 
-    <link rel="stylesheet" href="{% static "styles.min.css" %}">
+    <link rel="stylesheet" href="{% static 'styles.min.css' %}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container box_1620">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static "img/logo.png" %}"
+                    <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"
                             alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -46,8 +46,7 @@
     </header>
     <!--================Header Menu Area =================-->
 
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 
     <!-- Start Blog Post Siddebar -->
 
@@ -132,7 +131,7 @@
     </footer>
     <!--================ End Footer Area =================-->
 
-    <script src="{% static "scripts.js" %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
 
 </html>
