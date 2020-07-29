@@ -77,22 +77,22 @@
         <div class="comments-area">
           <h4>{{ post.comments|length }} Comments</h4>
           {% for comment in post.comments %}
-          <div class="comment-list">
-            <div class="single-comment justify-content-between d-flex">
-              <div class="user justify-content-between d-flex">
-                <div class="desc">
-                  <h5><a href="#">{{comment.author}}</a></h5>
-                  <p class="date">{{comment.published_at}}</p>
-                  <p class="comment">
-                    {{comment.text}}
-                  </p>
+            <div class="comment-list">
+              <div class="single-comment justify-content-between d-flex">
+                <div class="user justify-content-between d-flex">
+                  <div class="desc">
+                    <h5><a href="#">{{comment.author}}</a></h5>
+                    <p class="date">{{comment.published_at}}</p>
+                    <p class="comment">
+                      {{comment.text}}
+                    </p>
+                  </div>
+                </div>
+                <div class="reply-btn">
+                  <a href="" class="btn-reply text-uppercase">reply</a>
                 </div>
               </div>
-              <div class="reply-btn">
-                <a href="" class="btn-reply text-uppercase">reply</a>
-              </div>
             </div>
-          </div>
           {% endfor %}
         </div>
       </div>
