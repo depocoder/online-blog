@@ -16,7 +16,7 @@
         <h1>Blog details</h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">
               Blog Details
             </li>
@@ -35,9 +35,9 @@
       <div class="col-lg-8">
         <div class="main_blog_details">
           {% if post.image_url %}
-            <img class="img-fluid" src="{{post.image_url}}" alt="" />
+            <img class="img-fluid" src="{{post.image_url}}" alt="Картинка поста" />
           {% else %} 
-            <img class="img-fluid" src="{% static 'img/blog/blog4.png'%}" alt=""> 
+            <img class="img-fluid" src="{% static 'img/blog/blog4.png'%}" alt="Картинка блога"> 
           {% endif %}
           <h4>{{post.title}}</h4>
           <div class="user_details">

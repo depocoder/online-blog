@@ -32,13 +32,15 @@
         <div class="flex-fill" style="margin-right: 30px;">
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
-              <img class="card-img rounded-0" src="{{post.image_url}}" alt="" />
+              {%if post.image_url %}
+                <img class="card-img rounded-0" src="{{post.image_url}}" alt="Картинка популярного поста" />
+              {% else %} 
+                <img class="card-img rounded-0" src="{% static 'img/banner/blog.png' %}" alt="Стандартная картинка популярного поста"> 
+              {% endif %}
             </div>
             <div class="blog__slide__content">
               <h3>
-                <a href="{% url 'post_detail' slug=post.slug %}"
-                  >{{post.title}}</a
-                >
+                <a href="{% url 'post_detail' slug=post.slug %}">{{post.title}}</a>
               </h3>
               <p>{{post.published_at}}</p>
             </div>
@@ -59,9 +61,9 @@
             <div class="single-recent-blog-post">
               <div class="thumb">
                 {%if post.image_url %}
-                  <img class="img-fluid" src="{{post.image_url}}" alt="" />
+                  <img class="img-fluid" src="{{post.image_url}}" alt="Картинка свежего поста" />
                 {% else %} 
-                  <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt=""> {% endif %}
+                  <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Стандартная картинка свежего поста"> {% endif %}
                 <ul class="thumb-info" style="max-width: 550px;">
                   <li>
                     <a href="#"><i class="ti-user"></i>{{post.author}}</a>
